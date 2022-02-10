@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Template file for Terminology Checker Plugin
+    
+    The "incorrect-term" element must have a "match" element.
+    "match" element can have an attribute "type" with the following values: "whole-word", "character", "regular-expression"
+    Default is "whole-word" for all languages except Chinese, Japanese and Korean which have "character" as default
+    It can have zero, one, or multiple "suggestion" elements.
+    Suggestion element could have an attribute "format" with values "text" or "xml". 
+    When attribute is xml, the inserted content is handled as an XML fragment.  
+    The optional "message" element is presented as the highlight's tooltip.
+    The "ignorecase" attribute specifies whether or not the match is case-sensitive.
+    
+-->
+<incorrect-terms>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">websheet</match>
+        <suggestion format="text">Websheet</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">yaml</match>
+        <suggestion format="text">YAML</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">json</match>
+        <suggestion format="text">JSON</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">sharepoint</match>
+        <suggestion format="text">SharePoint</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">baremetal</match>
+        <suggestion format="text">bare metal</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">bare-metal</match>
+        <suggestion format="text">bare metal</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">HPE delivery team</match>
+        <suggestion format="text">HPE Delivery team</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">mysql</match>
+        <suggestion format="text">MySQL</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">NMERPC</match>
+        <suggestion format="xml">&lt;keyword keyref=&quot;nmerpc&quot;/></suggestion>
+        <message>Replace all occurrences with nmerpc keyword</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">id</match>
+        <suggestion>ID</suggestion>
+        <message>Replace all occurrences with uppercase ID (except codeblocks).</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">Internet Usage Manager</match>
+        <suggestion>enhanced Interactive Unified Mediation</suggestion>
+        <message>Replace all occurrences with new name.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">IUM</match>
+        <suggestion>eIUM</suggestion>
+        <message>Replace all occurrences with new name.</message>
+    </incorrect-term>
+    <incorrect-term>
+        <match type="character">ing</match>
+        <message>Progresive tense should not be allowed</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match>will be</match>
+        <suggestion></suggestion>
+        <message>Future tense should not be allowed</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">DEG</match>
+        <suggestion format="xml">&lt;keyword keyref=&quot;product_name_short&quot;/></suggestion>
+        <message>Replace all occurrences of product with key reference</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">eium</match>
+        <suggestion>HPE eIUM</suggestion>
+        <message>Replace all occurrences of eIUM with appropriate key reference for HPE eIUM</message>
+    </incorrect-term>
+    <incorrect-term severity="error">
+        <match>he</match>
+        <suggestion>they</suggestion>
+        <message>Pronounts should be avoided.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="regular-expression">etc.</match>
+        <suggestion>and so forth</suggestion>
+        <message>In formal writing, avoid Latin abbreviations.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">launchpad</match>
+        <suggestion>Launchpad</suggestion>
+        <message>Replace all occurrences with consistent name.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">opsconsole</match>
+        <suggestion>OpsConsole</suggestion>
+        <message>Replace all occurrences with correct name.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">Master-slave</match>
+        <suggestion>Primary-secondary</suggestion>
+        <message>Use inclusive terminology.</message>
+    </incorrect-term>
+</incorrect-terms>
