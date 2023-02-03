@@ -24,6 +24,21 @@
         <message>Warning message</message>
     </incorrect-term>
     <incorrect-term ignorecase="false">
+        <match type="whole-word">Nginx</match>
+        <suggestion format="text">NGINX</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">nginx</match>
+        <suggestion format="text">NGINX</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">Openshift</match>
+        <suggestion format="text">OpenShift</suggestion>
+        <message>Warning message</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
         <match type="whole-word">json</match>
         <suggestion format="text">JSON</suggestion>
         <message>Warning message</message>
@@ -73,10 +88,15 @@
         <suggestion>eIUM</suggestion>
         <message>Replace all occurrences with new name.</message>
     </incorrect-term>
-    <incorrect-term>
+    <incorrect-term ignorecase="true">
+        <match type="whole-word">eium</match>
+        <suggestion>HPE eIUM</suggestion>
+        <message>Replace all occurrences of eIUM with appropriate key reference for HPE eIUM</message>
+    </incorrect-term>
+    <!--     <incorrect-term>
         <match type="character">ing</match>
         <message>Progresive tense should not be allowed</message>
-    </incorrect-term>
+    </incorrect-term> -->
     <incorrect-term ignorecase="true">
         <match>will be</match>
         <suggestion></suggestion>
@@ -86,11 +106,6 @@
         <match type="whole-word">DEG</match>
         <suggestion format="xml">&lt;keyword keyref=&quot;product_name_short&quot;/></suggestion>
         <message>Replace all occurrences of product with key reference</message>
-    </incorrect-term>
-    <incorrect-term ignorecase="true">
-        <match type="whole-word">eium</match>
-        <suggestion>HPE eIUM</suggestion>
-        <message>Replace all occurrences of eIUM with appropriate key reference for HPE eIUM</message>
     </incorrect-term>
     <incorrect-term severity="error">
         <match>he</match>
@@ -116,5 +131,15 @@
         <match type="whole-word">Master-slave</match>
         <suggestion>Primary-secondary</suggestion>
         <message>Use inclusive terminology.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">rest</match>
+        <suggestion>REST</suggestion>
+        <message>Replace all occurrences with correct name.</message>
+    </incorrect-term>
+    <incorrect-term ignorecase="false">
+        <match type="whole-word">Rest</match>
+        <suggestion>REST</suggestion>
+        <message>Replace all occurrences with correct name.</message>
     </incorrect-term>
 </incorrect-terms>

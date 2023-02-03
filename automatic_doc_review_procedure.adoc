@@ -1,0 +1,261 @@
+= Doc Review Procedure
+:revdate: January 25, 2023
+:imagesdir: images
+:doctype: book
+:icon: font
+:toc: left
+:toclevels: 5
+:sectnums:
+:sectnumlevels: 5
+:numbered:
+:sectlinks:
+:linkcss:
+:stylesdir: d:\GitHub_documentation\asciidoc\stylesheets\
+:stylesheet: hpe_theme_custom.css
+:source-highlighter: rouge
+
+[preface]
+== About this guide
+
+* Chapter 1 provides instructions are running spell check on all of the files included in a ditamap. 
+* Chapter 2 includes details about using a customized terminology checker file (for the Oxygen Author XML terminology checker plugin) for automated reviews of tech documentation in Oxygen Author XML.
+* Chapter 3 includes information about using Schematron rules in Oxygen Author XML.
+* Chapter 4 includes a reference to a more advanced method of automated reviews.
+
+== Spell check
+Spell check the files in your ditamap!
+
+** open *Check Spelling in Files* option in Oxygen XML Author to check multiple files or all of the files in a ditamap
++
+[#img-spellcheck] 
+.Spell check multiple files - Edit tab
+image::oxygen_spell_check_multiple_files_1.png[]
+
+** select spell check options - select `Current DITA map hierarchy` to check all of the files in a ditamap`
++
+[#img-spellcheckoptions] 
+.Spell check multiple files - options
+image::oxygen_spell_check_multiple_files_2.png[]
+
+** resolve resulting errors
++ 
+[NOTE]
+====
+* clicking on an error will open the associated topic in the main panel
+====
++
+[#img-spellcheckresults] 
+.Spell check results
+image::spellcheckresults.png[]
+
+== Terminology checker
+
+[NOTE]
+====
+* *Requires latest Oxygen XML Author!*
+====
+
+==== Installation
+
+. Go to `Help > Install new add-ons` to open an add-on selection dialog box.
++
+[#img-installaddon] 
+.Install new add on
+image::install_new_addons.png[]
+
+. Enter or paste https://www.oxygenxml.com/InstData/Addons/default/updateSite.xml in the Show add-ons from field or select it from the drop-down menu
+. Select the `Terminology Checker` add-on and click `Next`
++
+[#img-terminologycheck] 
+.Install Terminology checker
+image::install_terminology_checker_addon.png[]
+
+. Read the end-user license agreement and then select the `I accept all terms` of the end-user license agreement option and click `+Finish+`
+. Restart Oxygen XML Author
+
+==== Configuration
+
+. Fork repo https://github.hpe.com/eric-szegedi/review_automation[review_automation] and clone it. Keep your forked repo in sync as updates may occur to the master repo.
+. Open in Oxygen XML Author the terminology file from the cloned GitHub repo `\review_automation\oxygen_xml_plugin_terminology_checker\terminology_checker.xml`.
+. Save the terminology_checker.xml file in a new subfolder named oxygen-term-checker located in the current project folder (the current project opened in Oxygen XML Author Project view)
++
+example: `c:\DITA\HPE_sources\snap\oxygen-term-checker\`
++
+[#img-projectview] 
+.Project view
+image::project_view.png[]
+
+. Go to the `Options -> Preferences -> Plugins -> Terminology Checker panel -> Additional terminology folder` and add the location to where the Vale style files are located - `\review_automation\oxygen_xml_plugin_terminology_checker\Vale_styles\`
++
+[#img-extraterminologyfolder] 
+.Additional terminology folder
+image::terminologychecker_plugin_preferences.png[]
+
+. add `Terminology Checker` window
++
+[#img-terminologywindow] 
+.Terminology Checker window
+image::terminologychecker_window.png[]
+
+==== Usage
+===== check a single file
+1. switch to the `Terminology Checker` window to see the warning and error messages which can also be highlighted by color in the file by configuring the proper preference options 
++
+[#img-terminologyusage] 
+.Terminology Checker example
+image::terminologychecker_usage.png[]
+
+2. resolve the highlighted errors
+
+===== check a ditamap and associated files
+
+1. to check all of the files in a ditamap, right click on ditamap and select `Check terminology`
++
+[#img-terminologycheckerditamap] 
+.Terminology Checker ditamap example
+image::terminologychecker_ditamap.png[]
+
+2. resolve the highlighted errors noted in the files of the ditamap
++
+[#img-terminologycheckerditamapresults] 
+.Terminology Checker ditamap results example
+image::terminologychecker_ditamap_results.png[]
++
+[NOTE]
+====
+* clicking on an error will open the associated topic file in the main panel
+====
+
+== Schematron rules: installation and usage
+
+==== check a single document
+** configure toolbar by right clicking in the toolbar area and selecting `Configure Toolbars...`
++
+[#img-configuretoolbar] 
+.Configure toolbar
+image::configure_toolbars.png[]
+
+** select `Document` -> `Associate Schema`
++
+[#img-associateschema] 
+.Add Associate Schema toolbar
+image::associate_schema.png[]
+
+** to run Schematron for that particular file click on the `Associate Schema` icon
++
+[#img-associateschemabutton] 
+.Associate Schema button
+image::associate_schema_button.png[]
+
+** choose the `master_schematron_rules.sch` file for the `URL` path and click `Ok`
++
+`d:\DTC Enterprise\Global Team - Digital Identity\HPE MPC Common\Schematron_rules\master_schematron_rules.sch`
++
+[#img-associateschemaoptions] 
+.Associate Schema options
+image::associate_schema_options.png[]
+
+** resolve the resulting errors
++
+Schematron example:
++
+when Schematron is applied to a file then error messages are shown both on the right side of the main panel and at the bottom
++
+[#img-schematronmessages] 
+.Schematron messages
+image::schematron_validation_msg.png[]
+
+==== check a ditamap and associated files
+
+** select `Validate and Check for Completeness` under DITA Maps Manager
++
+[#img-checkcompleteness] 
+.Validate and Check for Completeness
+image::validate_check_completeness.png[]
+
+** add  Schematron rules under `Additional Schematron checks` (`\DTC Enterprise\Global Team - Digital Identity\HPE MPC Common\Schematron_rules\master_schematron_rules.sch`) and click `Check`
++
+[#img-checkcompletenessoptions] 
+.Validate and Check for Completeness options
+image::ditamap_completeness_check.png[]
+
+** resolve the resulting errors
++
+example error results
++
+[#img-checkcompletenessresults] 
+.Validate and Check for Completeness results
+image::ditamap_completeness_check_results.png[]
+
+[NOTE]
+====
+* clicking on an error will open the associated topic file in the main panel
+====
+
+== Advanced automated review procedure
+This procedure uses the Vale linting tool and lefthook (a GitHub hook tool).
+
+1. https://github.hpe.com/eric-szegedi/vale_linter/wiki/Vale-linter-installation-and-system-configuration[Vale linter installation (CLI) and system configuration]
+
+2. https://github.hpe.com/eric-szegedi/vale_linter/wiki/Vale-integration-with-other-interfaces[Vale integration with other interfaces]]
+
+3. Running Vale on an individual file or folder: https://github.hpe.com/eric-szegedi/vale_linter/wiki/Vale-usage[Vale usage]
+
+4. https://github.hpe.com/eric-szegedi/vale_linter/wiki/Online-tool-for-building-Vale-rules[Online tool for building Vale rules] -- Use if you need to create or update \*.yml files to check for additional conditions.
+
+5. Review / Vale linter automation
+
+   a. https://github.hpe.com/eric-szegedi/vale_linter/wiki/Automating-Vale-linter-checks-with-lefthook[Automating Vale linter checks with lefthook]
+
+   b. https://docs.errata.ai/vale/install#using-vale-with-a-continuous-integration-ci-service[Vale usage with a continuous integration (CI) service]
+
+   c. https://github.com/errata-ai/vale-action[Vale GitHub action]. It has to be enabled by writing this email address - scm_ghe_admins@groups.ext.hpe.com - to ask the admins to enable it for your repo.
+
+6. https://github.hpe.com/eric-szegedi/vale_linter/wiki/Understanding-the-Vale-command-line-tool-output[Understanding the Vale command line tool output]
+
+7. If Vale was installed on your machine using the choco command, then to update Vale to a new release run the command `+choco upgrade vale+`.
+
+8. Vale rules in this repo were built to follow the https://brandcentral.hpe.com/brand-central/content/writing-style[HPE Style Guide]
++
+Rules used to convert the HPE Style Guide were based on YAML styles that can be found in these locations:
+
+   - <https://github.com/topics/vale-linter-style>
+   - <https://github.com/errata-ai/styles>
++
+[NOTE]
+====
+* Some styles have been modified from their original version.
+====
+
+9. Extension points
+
+[width="100%",cols="20%,80%",options="header",]
+|===
+^| **Check** ^| **Implementations** 
+^| https://errata-ai.github.io/vale/styles/#existence[existence] ^|HPE: AM_PM.yml, Ampersands, Begin_sentence.yml, But.yml, Capitalize_file_extensions.yml, Dates_ordinal.yml, Dates.yml, Directional_language.yml, Disabilities.yml, EmDash.yml, EnDash.yml, Ensure.yml, Exclamation.yml, Heading_capitalization.yml, headingPunctuation.yml, HPE_a_an.yml, HPE_Ellipses.yml, HPE_hyphen.yml, Indefinite_modifiers.yml, Jargon.yml, MeaningfulLinkWords.yml, MeaningfulWords_colors_shapes.yml, Negative_numbers.yml, Numbers_ranges.yml, Numeric_dates, Passive.yml, Person.yml, Prepositions_end_sentence.yml, Prepositions.yml, Quote_punctuation.yml, Semicolons.yml, Slash.yml, Spaces.yml, Tense.yml, Time_ranges.yml, Units_space, Wordiness,yml 
+
+Base: Capitalize_list_start.yml, Customer_names.yml, Empty_reference.yml, So.yml, Validate_wordiness.yml
+
+^| https://errata-ai.github.io/vale/styles/#substitution[substitution] ^|HPE: 24_7.yml, above_below.yml, Advice_advise.yml, Appendixes, HPE_Avoid.yml, Backup.yml, British.yml, Contractions.yml, End_user.yml, Gender.yml, HPE_name.yml, HPE_possessive.yml, InclusionCultural.yml, InclusionOther.yml, Latin.yml, Logon_login.yml, Noon_midnight.yml, Numbers.yml, Please.yml, Positive.yml, Pull_down.yml, Redundant.yml, Setup.yml, Should.yml, Terms_ignorecase_false.yml, Terms_ignorecase_true.yml, Very.yml, Word_choice.yml, Zero.yml 
+
+Base: Backend.yml, Term_Consistency_yml, Typography.yml
+
+^| https://errata-ai.github.io/vale/styles/#occurrence[occurrence] ^|Commas_morethanthree.yml, Sentence_length.yml 
+
+^| https://errata-ai.github.io/vale/styles/#repetition[repetition] ^|Repetition.yml 
+
+^| https://errata-ai.github.io/vale/styles/#consistency[consistency] ^|Consistency.yml 
+
+^| https://errata-ai.github.io/vale/styles/#capitalization[capitalization] ^|Capitalization.yml 
+
+^| https://errata-ai.github.io/vale/styles/#readability[readability] ^|N/A 
+
+^| https://errata-ai.github.io/vale/styles/#conditional[conditional] ^|HPE: Acronyms_abbreviations.yml  
+
+Base: UnexpandedAcronyms.yml 
+
+^| https://errata-ai.github.io/vale/styles/#spelling[spelling] ^|Spelling.yml 
+
+|===
+
+For more details, see the https://github.hpe.com/eric-szegedi/vale_linter[README file].

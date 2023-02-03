@@ -3,7 +3,7 @@
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns="http://purl.oclc.org/dsdl/schematron">
     <sch:pattern>
-    <!-- titles should start with an uppercase letter, and should have sentence case -->
+    <!-- duplicate topicref detected in map -->
         <sch:rule context="*[contains(@class, ' map/topicref ')]" role="warning">
             <sch:let name="href" value="@href"/>
             <sch:report

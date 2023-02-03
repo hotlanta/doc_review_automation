@@ -3,7 +3,7 @@
    xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns="http://purl.oclc.org/dsdl/schematron">
    <sch:pattern>
-      <sch:rule context="p"  role="warning">
+      <sch:rule context="*['p'] [not(' keyref ')]" role="warning">
       <!-- 'Oxford comma light': if there is an 'and' in a paragraph, enforce that it is preceded by a comma -->
          <sch:let name="whereIsAnd" value="index-of(.,' and ')"/>
          <sch:let name="thingsBeforeAnd" value="substring-before(., ' and')"/>

@@ -4,7 +4,7 @@
     xmlns="http://purl.oclc.org/dsdl/schematron">
     <sch:pattern>
     <!-- titles should start with an uppercase letter, and should have sentence case -->
-        <sch:rule context="title"  role="warning">
+        <sch:rule context="*['title'] [not(' keyref ')]" role="warning">
             <sch:let name="first-letter"
                 value="substring(.,1,1)"/>
             <sch:assert test="$first-letter = upper-case($first-letter)">
