@@ -20,7 +20,7 @@ For automated reviews using the Vale linter and lefthook (GitHub hook), see my [
    
    VS Code - Vale
    
-   Git / GitHub - Vale through either [GitHub Actions](https://github.com/errata-ai/vale-action) or [Git hooks](github.com/hotlanta/vale_linter/wiki/Automating-Vale-linter-checks-with-lefthook)
+   Git / GitHub - Vale through either [GitHub Actions](https://github.com/errata-ai/vale-action) or [Git hooks](https://github.hpe.com/eric-szegedi/vale_linter/wiki/Automating-Vale-linter-checks-with-lefthook)
 
 <b>For more details, see [doc_review automation wiki](https://github.com/hotlanta/doc_review_automation/wiki)</b>
   
