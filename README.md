@@ -24,7 +24,7 @@ For automated reviews using the Vale linter and lefthook (GitHub hook), see my [
 
 <b>For more details, see [doc_review automation wiki](https://github.com/hotlanta/doc_review_automation/wiki)</b>
   
-   * [Using Schematron in Oxygen Author]((https://github.com/hotlanta/doc_review_automation/wiki/Using-Schematron-in-Oxygen-XML-Author)
+   * [Using Schematron in Oxygen Author](https://github.com/hotlanta/doc_review_automation/wiki/Using-Schematron-in-Oxygen-XML-Author)
    * [Using Terminology Checker in Oxygen Author](https://github.com/hotlanta/doc_review_automation/wiki/Using-Terminology-Checker-in-Oxygen-XML-Author)
 
 <b>How to contribute:</b>
